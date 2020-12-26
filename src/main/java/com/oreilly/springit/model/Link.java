@@ -1,6 +1,8 @@
 package com.oreilly.springit.model;
 
 
+import java.util.Objects;
+
 public class Link {
 
 
@@ -33,5 +35,26 @@ public class Link {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return "Link{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Link link = (Link) o;
+        return id.equals(link.id) && title.equals(link.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title);
     }
 }
