@@ -1,8 +1,7 @@
-package com.oreilly.springit.model;
+package com.oreilly.springit.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,15 +10,10 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
-public class Link {
+public class Comment {
 
     @Id
     @GeneratedValue
     private Long id;
-
-    @NonNull
-    private String title;
-
-    @NonNull
-    private String url;
+    private String body;
 }

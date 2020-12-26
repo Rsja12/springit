@@ -1,4 +1,4 @@
-package com.oreilly.springit.model;
+package com.oreilly.springit.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +10,10 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
-public class Comment {
+public class Vote {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String body;
+    private Integer vote;
 }
