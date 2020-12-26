@@ -23,4 +23,12 @@ public class Vote {
     public void setVote(Integer vote) {
         this.vote = vote;
     }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", vote=" + vote +
+                '}';
+    }
 }
