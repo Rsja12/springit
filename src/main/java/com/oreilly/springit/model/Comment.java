@@ -1,5 +1,7 @@
 package com.oreilly.springit.model;
 
+import java.util.Objects;
+
 public class Comment {
 
     private Long id;
@@ -21,5 +23,26 @@ public class Comment {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", body='" + body + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(id, comment.id) && Objects.equals(body, comment.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, body);
     }
 }
