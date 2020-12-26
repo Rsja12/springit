@@ -1,7 +1,9 @@
 package com.oreilly.springit.model;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
 public class Comment {
 
     private Long id;

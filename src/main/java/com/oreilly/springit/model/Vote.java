@@ -1,6 +1,8 @@
 package com.oreilly.springit.model;
 
+import javax.persistence.Entity;
 
+@Entity
 public class Vote {
 
     private Long id;

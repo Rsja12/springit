@@ -1,10 +1,11 @@
 package com.oreilly.springit.model;
 
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
 public class Link {
-
 
     private Long id;
     private String title;
