@@ -22,8 +22,8 @@ public class LinkController {
     }
 
     @PostMapping("/create")
-    public Link create() {
-        return null;
+    public Link create(@ModelAttribute Link link) {
+        return linkRepository.save(link);
     }
 
     @GetMapping("/{id}")
