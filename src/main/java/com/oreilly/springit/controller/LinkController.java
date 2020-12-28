@@ -18,7 +18,7 @@ public class LinkController {
 
     @GetMapping("/")
     public List<Link> list() {
-        return null;
+        return linkRepository.findAll();
     }
 
     @PostMapping("/create")
