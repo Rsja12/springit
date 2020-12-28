@@ -1,6 +1,7 @@
 package com.oreilly.springit.controller;
 
 import com.oreilly.springit.domain.Link;
+import com.oreilly.springit.repository.LinkRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,6 +9,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/links")
 public class LinkController {
+
+    private LinkRepository linkRepository;
+
+    public LinkController(LinkRepository linkRepository) {
+        this.linkRepository = linkRepository;
+    }
 
     @GetMapping("/")
     public List<Link> list() {
