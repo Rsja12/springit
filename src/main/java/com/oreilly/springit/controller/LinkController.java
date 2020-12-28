@@ -32,14 +32,14 @@ public class LinkController {
         return linkRepository.findById(id);
     }
 
-    @PutMapping("/update")
-    public Link update() {
-        return null;
+    @PutMapping("/{id}")
+    public Link update(@PathVariable Long id, @ModelAttribute Link link) {
+        return linkRepository.save(link);
     }
 
-    @DeleteMapping("/delete")
-    public void delete() {
-
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        linkRepository.deleteById(id);
     }
 
 }
