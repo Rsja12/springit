@@ -5,6 +5,7 @@ import com.oreilly.springit.repository.LinkRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/links")
@@ -27,8 +28,8 @@ public class LinkController {
     }
 
     @GetMapping("/{id}")
-    public Link read(@PathVariable Long id) {
-        return null;
+    public Optional<Link> read(@PathVariable Long id) {
+        return linkRepository.findById(id);
     }
 
     @PutMapping("/update")
