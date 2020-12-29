@@ -1,11 +1,10 @@
 package com.oreilly.springit.controller;
 
-import com.oreilly.springit.domain.Link;
 import com.oreilly.springit.repository.LinkRepository;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/links")
@@ -18,28 +17,11 @@ public class LinkController {
     }
 
     @GetMapping("/")
-    public List<Link> list() {
-        return linkRepository.findAll();
+    public String list(Model model) {
+        model.addAttribute("links", linkRepository.findAll());
+        return "list";
     }
 
-    @PostMapping("/create")
-    public Link create(@ModelAttribute Link link) {
-        return linkRepository.save(link);
-    }
 
-    @GetMapping("/{id}")
-    public Optional<Link> read(@PathVariable Long id) {
-        return linkRepository.findById(id);
-    }
-
-    @PutMapping("/{id}")
-    public Link update(@PathVariable Long id, @ModelAttribute Link link) {
-        return linkRepository.save(link);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        linkRepository.deleteById(id);
-    }
 
 }
