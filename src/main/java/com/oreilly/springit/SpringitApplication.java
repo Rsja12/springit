@@ -19,20 +19,4 @@ public class SpringitApplication {
 
 		System.out.println("Welcome to Springit!");
 	}
-
-	@Bean
-	CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository) {
-		return args -> {
-			Link link = new Link("Getting started with Spring Boot 2", "https://www.udemy.com/course/spring-boot-2/?referralCode=ECB6B9F8EF104672AF4A");
-			linkRepository.save(link);
-
-			Comment comment = new Comment("This Spring Boot 2 link is awesome!", link);
-			commentRepository.save(comment);
-
-			link.addComment(comment);
-
-			System.out.println("we just inserted a link and comment");
-		};
-	}
-
 }
